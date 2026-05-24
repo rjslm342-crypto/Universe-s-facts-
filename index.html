@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="description" content="Universe's Facts — Submit your promotion request.">
+<title>Universe's Facts — Promotion Request</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+:root{
+  --dark:#1A1A1A;
+  --light:#F4F1DE;
+  --accent:#F2CC8F;
+  --accent2:#E8A838;
+  --gb:rgba(244,241,222,.06);
+  --gbd:rgba(242,204,143,.18);
+  --muted:rgba(244,241,222,.5);
+}
+body{
+  background:var(--dark);
+  color:var(--light);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+}
+
+/* STARS */
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.s{position:absolute;border-radius:50%;background:#fff;will-change:transform,opacity;transform:translateZ(0);backface-visibility:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 6vw;
+  background:rgba(26,26,26,.8);
+  -webkit-backdrop-filter:blur(20px);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--gbd);
+  transform:translateZ(0);
+  backface-visibility:hidden;
+}
+.logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-weight:700;
+  color:var(--light);text-decoration:none;
+  display:flex;align-items:center;gap:8px;
+}
+.logo b{color:var(--accent)}
+
+/* MAIN */
+main{
+  position:relative;z-index:1;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:100px 5vw 60px;
+}
+.glow{
+  position:fixed;top:30%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(242,204,143,.07),transparent 65%);
+  pointer-events:none;z-index:0;
+}
+
+/* CARD */
+.card{
+  width:100%;max-width:700px;
+  background:var(--gb);
+  border:1px solid var(--gbd);
+  -webkit-backdrop-filter:blur(24px);
+  backdrop-filter:blur(24px);
+  border-radius:22px;
+  padding:48px 44px;
+  position:relative;overflow:hidden;
+  animation:fadeUp .6s cubic-bezier(0.2,0.9,0.4,1.1) both;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+  will-change:transform,opacity;
+}
+.card::before{
+  content:'';position:absolute;top:-80px;right:-80px;
+  width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(circle,rgba(242,204,143,.07),transparent 65%);
+  pointer-events:none;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.card-top{text-align:center;margin-bottom:36px}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(242,204,143,.1);border:1px solid var(--gbd);
+  padding:6px 16px;border-radius:50px;
+  font-size:.74rem;font-weight:600;letter-spacing:1.8px;
+  color:var(--accent);text-transform:uppercase;margin-bottom:16px;
+}
+.card-top h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.7rem,4vw,2.5rem);
+  font-weight:700;line-height:1.2;color:var(--light);
+  margin-bottom:10px;
+}
+.card-top h1 i{font-style:normal;color:var(--accent)}
+.card-top p{font-size:.9rem;color:var(--muted);line-height:1.7;max-width:480px;margin:0 auto}
+
+/* FORM */
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fg{display:flex;flex-direction:column;gap:7px}
+.fg.full{grid-column:1/-1}
+label{font-size:.74rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:rgba(244,241,222,.5)}
+input,select,textarea{
+  background:rgba(244,241,222,.05);
+  border:1px solid var(--gbd);
+  border-radius:10px;padding:12px 15px;
+  color:var(--light);font-family:'DM Sans',sans-serif;font-size:.9rem;
+  transition:border-color .2s ease,background .2s ease,box-shadow .2s ease;
+  outline:none;width:100%;
+  -webkit-appearance:none;appearance:none;
+  transform:translateZ(0);
+}
+input:focus,select:focus,textarea:focus{
+  border-color:rgba(242,204,143,.55);
+  background:rgba(242,204,143,.06);
+  box-shadow:0 0 0 3px rgba(242,204,143,.08);
+}
+input::placeholder,textarea::placeholder{color:rgba(244,241,222,.25)}
+select option{background:#1A1A1A;color:var(--light)}
+textarea{resize:vertical;min-height:100px}
+
+.subbtn{
+  width:100%;padding:14px;border-radius:50px;margin-top:6px;
+  background:var(--accent);color:var(--dark);
+  font-family:'DM Sans',sans-serif;font-weight:700;font-size:.95rem;
+  border:none;cursor:pointer;letter-spacing:.3px;
+  transition:background .2s ease,transform .2s cubic-bezier(0.2,0.9,0.4,1.1),box-shadow .2s ease;
+  box-shadow:0 4px 18px rgba(242,204,143,.22);
+  transform:translateZ(0);
+}
+.subbtn:hover{background:var(--accent2);transform:translateY(-2px) scale(1.01);box-shadow:0 10px 30px rgba(242,204,143,.36)}
+.subbtn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+.error-msg{
+  background:rgba(255,80,80,.12);
+  border-left:3px solid #ff5e5e;
+  padding:10px 14px;
+  border-radius:12px;
+  font-size:.8rem;
+  color:#ffb5b5;
+  margin-top:12px;
+  display:none;
+  backdrop-filter:blur(4px);
+}
+
+/* SUCCESS */
+.sov{
+  position:fixed;inset:0;z-index:500;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(26,26,26,.92);
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
+}
+.sov.on{opacity:1;pointer-events:all}
+.sbox{
+  text-align:center;padding:48px 40px;max-width:420px;width:90%;
+  background:var(--gb);border:1px solid var(--gbd);
+  border-radius:22px;
+  -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+  transform:translateY(18px);transition:transform .35s cubic-bezier(0.2,0.9,0.4,1.1);
+}
+.sov.on .sbox{transform:translateY(0)}
+.cw{
+  width:70px;height:70px;border-radius:50%;margin:0 auto 20px;
+  background:rgba(242,204,143,.1);border:2px solid var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  animation:pop .4s .15s both;
+}
+.cw svg{width:30px;height:30px;stroke:var(--accent)}
+.cw svg path{stroke-dasharray:60;stroke-dashoffset:60;animation:dc .4s .5s ease forwards}
+@keyframes dc{to{stroke-dashoffset:0}}
+@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.1)}100%{transform:scale(1)}}
+.stitle{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--light);margin-bottom:10px}
+.smsg{color:var(--muted);line-height:1.7;font-size:.9rem;margin-bottom:22px}
+.sclose{
+  background:var(--accent);color:var(--dark);border:none;
+  padding:10px 28px;border-radius:50px;
+  font-family:'DM Sans',sans-serif;font-weight:600;cursor:pointer;
+  transition:background .2s,transform .2s;font-size:.87rem;
+}
+.sclose:hover{background:var(--accent2);transform:translateY(-1px)}
+#cc{position:fixed;inset:0;pointer-events:none;z-index:499}
+
+/* FOOTER */
+footer{
+  position:relative;z-index:1;
+  padding:20px 6vw;
+  border-top:1px solid var(--gbd);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+}
+.fcopy{font-size:.76rem;color:var(--muted)}
+.faddr{font-size:.68rem;color:rgba(244,241,222,.09);font-style:italic;transition:color .4s ease;cursor:default}
+.faddr:hover{color:rgba(244,241,222,.32)}
+
+/* remove wa button - no floating WhatsApp */
+
+@media(max-width:600px){
+  .card{padding:28px 18px}
+  .fgrid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="stars"></div>
+<canvas id="cc"></canvas>
+<div class="glow"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">✦ Universe's <b>Facts</b></a>
+</nav>
+
+<!-- MAIN -->
+<main>
+  <div class="card">
+    <div class="card-top">
+      <div class="badge">✦ Premium Promotion</div>
+      <h1>Submit Your <i>Promotion Request</i></h1>
+      <p>Fill in your details and our team will contact you within 24 hours to kick off your campaign.</p>
+    </div>
+
+    <form id="pf">
+      <div class="fgrid">
+        <div class="fg">
+          <label for="fn">Full Name</label>
+          <input type="text" id="fn" placeholder="Your full name" required>
+        </div>
+        <!-- Email and WhatsApp fields split -->
+        <div class="fg">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="you@example.com">
+        </div>
+        <div class="fg">
+          <label for="whatsapp">WhatsApp Number</label>
+          <input type="tel" id="whatsapp" placeholder="+91XXXXXXXXXX">
+        </div>
+        <div class="fg">
+          <label for="bn">Page / Business Name</label>
+          <input type="text" id="bn" placeholder="Your brand or page name" required>
+        </div>
+        <div class="fg">
+          <label for="sl">Social Media Links</label>
+          <input type="text" id="sl" placeholder="Instagram, YouTube, TikTok..." required>
+        </div>
+        <div class="fg">
+          <label for="pt">Promotion Type</label>
+          <select id="pt" required>
+            <option value="" disabled selected>Select promotion type</option>
+            <option>Instagram Page Promotion</option>
+            <option>YouTube Channel Promotion</option>
+            <option>Facebook Page Promotion</option>
+            <option>TikTok / Reels Promotion</option>
+            <option>Website / Blog Promotion</option>
+            <option>Product / Service Promotion</option>
+            <option>Music / Podcast Promotion</option>
+            <option>Event Promotion</option>
+            <option>Custom / Multi-Platform</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="br">Budget Range</label>
+          <select id="br" required>
+            <option value="" disabled selected>Select your budget</option>
+            <option>Under ₹1,000</option>
+            <option>₹1,000 – ₹2,500</option>
+            <option>₹2,500 – ₹5,000</option>
+            <option>₹5,000 – ₹10,000</option>
+            <option>₹10,000 – ₹25,000</option>
+            <option>₹25,000+</option>
+          </select>
+        </div>
+        <div class="fg full">
+          <label for="dr">Campaign Duration</label>
+          <select id="dr" required>
+            <option value="" disabled selected>Select duration</option>
+            <option>3 Days</option>
+            <option>7 Days</option>
+            <option>14 Days</option>
+            <option>30 Days</option>
+            <option>Custom Duration</option>
+          </select>
+        </div>
+        <div class="fg full">
+          <label for="mg">Message / Special Instructions</label>
+          <textarea id="mg" placeholder="Tell us your goals, target audience, or any specific requirements..."></textarea>
+        </div>
+      </div>
+      <div id="formError" class="error-msg"></div>
+      <button type="submit" class="subbtn" id="sb">✦ Submit Promotion Request</button>
+    </form>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span class="fcopy">© 2026 Universe's Facts. All rights reserved.</span>
+  <span class="faddr">India, Dhubri, Bilasipara, Lakhiganj</span>
+</footer>
+
+<!-- SUCCESS -->
+<div class="sov" id="so">
+  <div class="sbox">
+    <div class="cw">
+      <svg viewBox="0 0 52 52" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 27 L22 35 L38 18"/>
+      </svg>
+    </div>
+    <div class="stitle">Request Received!</div>
+    <div class="smsg">Thank you! Your request has been received. Our team will contact you soon to discuss your promotion campaign.</div>
+    <button class="sclose" onclick="cls()">Done</button>
+  </div>
+</div>
+
+<script>
+const BOT = "8641845785:AAEAtaSP0pkx4QAuGvLrXmC-iiOyigyefaI";
+const CID = "8719144917";
+
+// Stars with GPU acceleration
+(function(){
+  const c = document.getElementById('stars');
+  for(let i=0;i<90;i++){
+    const s=document.createElement('div');
+    s.className='s';
+    const sz=Math.random()*2+.4;
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;opacity:0;transform:translateZ(0);`;
+    c.appendChild(s);
+    const dur=(Math.random()*3+2)*1000,delay=Math.random()*6000,mx=Math.random()*.6+.1;
+    let t0=null;
+    function a(ts){
+      if(!t0)t0=ts+delay;
+      const p=((ts-t0)%dur)/dur;
+      s.style.opacity=Math.max(0,p<.5?p*2*mx:(1-p)*2*mx);
+      requestAnimationFrame(a);
+    }
+    setTimeout(()=>requestAnimationFrame(a),delay);
+  }
+})();
+
+// Confetti (smooth)
+const cv=document.getElementById('cc'),cx=cv.getContext('2d');
+let pts=[],run=false;
+function rsz(){cv.width=window.innerWidth;cv.height=window.innerHeight}
+window.addEventListener('resize',rsz,{passive:true});rsz();
+const CL=['#F2CC8F','#E8A838','#F4F1DE','#FFD700','#FFF3B0','#FFAA00','#fff'];
+function go(){
+  if(run)return;run=true;
+  pts=[];
+  for(let i=0;i<150;i++)pts.push({
+    x:Math.random()*cv.width,y:-10-Math.random()*120,
+    vx:(Math.random()-.5)*5,vy:Math.random()*3+1.5,
+    color:CL[Math.floor(Math.random()*CL.length)],
+    w:Math.random()*8+3,h:Math.random()*5+2,
+    angle:Math.random()*Math.PI*2,spin:Math.random()*.16-.08,
+    op:1,dec:Math.random()*.007+.003,rect:Math.random()>.5,r:Math.random()*4+2
+  });
+  (function draw(){
+    cx.clearRect(0,0,cv.width,cv.height);
+    let alive=false;
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.vy+=.06;p.angle+=p.spin;p.op-=p.dec;
+      if(p.op>0)alive=true;
+      cx.save();cx.globalAlpha=Math.max(0,p.op);
+      cx.translate(p.x,p.y);cx.rotate(p.angle);
+      cx.fillStyle=p.color;
+      if(p.rect)cx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+      else{cx.beginPath();cx.arc(0,0,p.r,0,Math.PI*2);cx.fill()}
+      cx.restore();
+    });
+    if(alive)requestAnimationFrame(draw);
+    else{cx.clearRect(0,0,cv.width,cv.height);run=false}
+  })();
+}
+
+// Form validation: either email or whatsapp required
+function validateContact() {
+  const email = document.getElementById('email').value.trim();
+  const whatsapp = document.getElementById('whatsapp').value.trim();
+  return email !== '' || whatsapp !== '';
+}
+
+function showError(msg) {
+  const errDiv = document.getElementById('formError');
+  errDiv.textContent = msg;
+  errDiv.style.display = 'block';
+  setTimeout(() => {
+    errDiv.style.opacity = '0';
+    setTimeout(() => { errDiv.style.display = 'none'; errDiv.style.opacity = ''; }, 300);
+  }, 3500);
+}
+
+// Form submission
+document.getElementById('pf').addEventListener('submit', async function(e){
+  e.preventDefault();
+  
+  // Validate at least one contact method
+  if(!validateContact()) {
+    showError("❌ Please fill either Email Address or WhatsApp Number (at least one is mandatory).");
+    return;
+  }
+  
+  const btn = document.getElementById('sb');
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  
+  const fullName = document.getElementById('fn').value;
+  const emailVal = document.getElementById('email').value.trim();
+  const whatsappVal = document.getElementById('whatsapp').value.trim();
+  const business = document.getElementById('bn').value;
+  const social = document.getElementById('sl').value;
+  const promoType = document.getElementById('pt').value;
+  const budget = document.getElementById('br').value;
+  const duration = document.getElementById('dr').value;
+  const message = document.getElementById('mg').value;
+  
+  // Build contact string for telegram
+  let contactInfo = '';
+  if(emailVal) contactInfo += `📧 Email: ${emailVal}\n`;
+  if(whatsappVal) contactInfo += `📱 WhatsApp: ${whatsappVal}\n`;
+  if(!emailVal && !whatsappVal) contactInfo += `⚠️ No contact info (should not happen)\n`;
+  
+  const txt = `🌌 *New Promotion Request — Universe's Facts*\n\n👤 *Full Name:* ${fullName}\n${contactInfo}🏢 *Business / Page:* ${business}\n🔗 *Social Links:* ${social}\n📢 *Promotion Type:* ${promoType}\n💰 *Budget:* ${budget}\n⏳ *Duration:* ${duration}\n📝 *Message:*\n${message || '—'}\n\n⏰ _${new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'})}_`;
+  
+  try{
+    await fetch(`https://api.telegram.org/bot${BOT}/sendMessage`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({chat_id:CID,text:txt,parse_mode:'Markdown'})
+    });
+  } catch(_) {}
+  
+  go();
+  setTimeout(()=>document.getElementById('so').classList.add('on'), 250);
+  this.reset();
+  btn.textContent = '✦ Submit Promotion Request';
+  btn.disabled = false;
+});
+
+function cls(){ document.getElementById('so').classList.remove('on'); }
+
+// Additional smoothness: force high-quality rendering
+window.addEventListener('load', () => {
+  document.body.style.transform = 'translateZ(0)';
+  // optional: pre-warm animations
+});
+</script>
+</body>
+</html>
